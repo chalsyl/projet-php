@@ -1,30 +1,84 @@
-/* Thème Ninja Admin - Gris métalliques */
+/* CSS Admin Professionnel - Design System Moderne */
 :root {
-    --ninja-bg: #23272b;
-    --ninja-panel: #2d3136;
-    --ninja-accent: #7e7e7e;
-    --ninja-accent2: #bfc1c6;
-    --ninja-text: #f5f5f5;
-    --ninja-link: #e0e0e0;
-    --ninja-link-hover: #fff;
-    --ninja-btn: linear-gradient(90deg, #444950 0%, #7e7e7e 100%);
-    --ninja-btn-hover: linear-gradient(90deg, #7e7e7e 0%, #444950 100%);
-    --ninja-shadow: 0 4px 24px #000a  ;
+    /* Palette de couleurs professionnelle */
+    --admin-primary: #1e293b;
+    --admin-primary-light: #334155;
+    --admin-secondary: #3b82f6;
+    --admin-secondary-light: #60a5fa;
+    --admin-accent: #10b981;
+    --admin-accent-light: #34d399;
+    --admin-warning: #f59e0b;
+    --admin-error: #ef4444;
+    --admin-success: #10b981;
+    
+    /* Couleurs neutres */
+    --admin-bg: #f8fafc;
+    --admin-surface: #ffffff;
+    --admin-surface-elevated: #ffffff;
+    --admin-border: #e2e8f0;
+    --admin-border-light: #f1f5f9;
+    
+    /* Texte */
+    --admin-text-primary: #0f172a;
+    --admin-text-secondary: #475569;
+    --admin-text-muted: #94a3b8;
+    --admin-text-inverse: #ffffff;
+    
+    /* Ombres modernes */
+    --admin-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --admin-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --admin-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --admin-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Rayons de bordure */
+    --admin-radius-sm: 6px;
+    --admin-radius-md: 8px;
+    --admin-radius-lg: 12px;
+    --admin-radius-xl: 16px;
+    
+    /* Transitions */
+    --admin-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --admin-transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Reset et base */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: var(--ninja-bg);
-    color: var(--ninja-text);
-    font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin: 0;
     min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
+/* Menu de navigation moderne */
 #menu {
-    background: var(--ninja-panel);
-    box-shadow: var(--ninja-shadow);
-    padding: 1.5rem 0.5rem 1.5rem 1.5rem;
-    border-radius: 0 0 18px 0;
-    margin-bottom: 2rem;
+    background: var(--admin-surface);
+    box-shadow: var(--admin-shadow-md);
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 var(--admin-radius-xl) 0;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--admin-border);
+    position: relative;
 }
+
+#menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--admin-secondary), var(--admin-accent));
+    border-radius: var(--admin-radius-xl) var(--admin-radius-xl) 0 0;
+}
+
 #menu ul {
     list-style: none;
     margin: 0;
@@ -32,226 +86,547 @@ body {
     display: flex;
     gap: 2rem;
     justify-content: center;
-    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
 }
+
 #menu ul li a {
-    color: #f3f3f3;
+    color: var(--admin-text-secondary);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1.2rem;
-    border-radius: 8px;
-    transition: color 0.2s;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--admin-radius-md);
+    transition: all var(--admin-transition);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid transparent;
 }
-#menu ul li a:hover, #menu li a.active {
-    color: #e0b400;
+
+#menu ul li a:hover {
+    color: var(--admin-secondary);
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
 }
-h1, h2, h3 {
-    color: var(--ninja-accent2);
-    letter-spacing: 1px;
-    text-shadow: 0 2px 8px #0006;
+
+#menu ul li a.active {
+    color: var(--admin-text-inverse);
+    background: linear-gradient(135deg, var(--admin-secondary), var(--admin-secondary-light));
+    box-shadow: var(--admin-shadow-md);
 }
-table {
-    width: 100%;
-    background: var(--ninja-panel);
-    color: var(--ninja-text);
-    border-radius: 10px;
-    box-shadow: var(--ninja-shadow);
-    border-collapse: collapse;
+
+/* Typographie moderne */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--admin-text-primary);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 2.25rem;
     margin-bottom: 2rem;
 }
-table th, table td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid #444950;
-    position: relative;
-    letter-spacing: 0.5px;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+
+h2 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
 }
-table tr {
-    transition: background 0.2s;
+
+h3 {
+    font-size: 1.5rem;
 }
-table tr:hover {
-    background: #23272bcc;
-    box-shadow: 0 0 16px #0008 inset;
+
+/* Tableaux modernes */
+table {
+    width: 100%;
+    background: var(--admin-surface);
+    color: var(--admin-text-primary);
+    border-radius: var(--admin-radius-lg);
+    box-shadow: var(--admin-shadow-md);
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid var(--admin-border);
 }
-table td::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 30%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #7e7e7e88, transparent);
-    transform: translateX(-50%);
-    opacity: 0.2;
-}
+
 table th {
-    background: #444950;
-    color: var(--ninja-accent2);
-    font-weight: 700;
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-primary-light));
+    color: var(--admin-text-inverse);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
 }
+
+table th:first-child {
+    border-radius: var(--admin-radius-lg) 0 0 0;
+}
+
+table th:last-child {
+    border-radius: 0 var(--admin-radius-lg) 0 0;
+}
+
+table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--admin-border-light);
+    vertical-align: middle;
+    transition: all var(--admin-transition);
+}
+
+table tr:hover {
+    background: rgba(59, 130, 246, 0.02);
+}
+
 table tr:last-child td {
     border-bottom: none;
 }
-form {
-    background: var(--ninja-panel);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--ninja-shadow);
-    max-width: 500px;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-form h2 {
-    text-align: center;
-    color: #e0b400;
-    margin-bottom: 1.5rem;
-    letter-spacing: 1px;
-    font-family: 'Poppins', 'Inter', Arial, sans-serif;
-}
-form label {
-    color: #e0b400;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-form input, form select, form textarea {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    margin-bottom: 1.2rem;
-    border-radius: 8px;
-    border: 1.5px solid #222;
-    background: #23272b;
-    color: #f3f3f3;
-    font-size: 1rem;
-    transition: border 0.2s, background 0.2s;
-}
-form input[type="text"]:focus,
-form input[type="password"]:focus {
-    border-color: #e0b400;
-    background: #181c1f;
-    outline: none;
-}
-button[type="submit"] {
-    background: linear-gradient(90deg, #e0b400 0%, #23272b 100%);
-    color: #181c1f;
-    font-weight: 700;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
-    padding: 1rem 0;
-    margin-top: 1rem;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    transition: background 0.2s, color 0.2s, transform 0.2s;
-}
-button[type="submit"]:hover {
-    background: linear-gradient(90deg, #23272b 0%, #e0b400 100%);
-    color: #e0b400;
-    transform: translateY(-2px) scale(1.03);
-}
-.message {
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    background: #444950;
-    color: #ffe066;
-    box-shadow: 0 2px 8px #0006;
-}
-.message.error {
-    color: #ff6f6f;
-}
-.message.success {
-    color: #aaffaa;
+
+table tr:last-child td:first-child {
+    border-radius: 0 0 0 var(--admin-radius-lg);
 }
 
-/* Liens ninja */
-a, .ninja-link {
-    color: #bfc1c6;
+table tr:last-child td:last-child {
+    border-radius: 0 0 var(--admin-radius-lg) 0;
+}
+
+/* Actions dans les tableaux */
+table td a {
+    color: var(--admin-secondary);
     text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--admin-radius-sm);
+    transition: all var(--admin-transition);
+    font-size: 0.875rem;
+}
+
+table td a:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--admin-secondary-light);
+}
+
+table td a[style*="color:#d32f2f"] {
+    color: var(--admin-error) !important;
+}
+
+table td a[style*="color:#d32f2f"]:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: var(--admin-error) !important;
+}
+
+/* Formulaires modernes */
+form {
+    background: var(--admin-surface);
+    padding: 2.5rem;
+    border-radius: var(--admin-radius-xl);
+    box-shadow: var(--admin-shadow-lg);
+    max-width: 600px;
+    margin: 2rem auto;
+    border: 1px solid var(--admin-border);
     position: relative;
-    transition: color 0.2s, text-shadow 0.2s;
-    text-shadow: 0 2px 8px #0008;
 }
-a:hover, .ninja-link:hover {
-    color: #ffe066;
-    text-shadow: 0 0 12px #ffe066, 0 2px 8px #000a;
-}
-a::after, .ninja-link::after {
+
+form::before {
     content: '';
     position: absolute;
-    left: 0; right: 0; bottom: -2px;
-    height: 2px;
-    background: linear-gradient(90deg, #ffe066 0%, #7e7e7e 100%);
-    border-radius: 2px;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-a:hover::after, .ninja-link:hover::after {
-    opacity: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--admin-secondary), var(--admin-accent));
+    border-radius: var(--admin-radius-xl) var(--admin-radius-xl) 0 0;
 }
 
-/* Détails ninja : shuriken, ombres, effet sabre */
-.ninja-shuriken {
-    display: inline-block;
-    width: 1.2em;
-    height: 1.2em;
-    background: url('data:image/svg+xml;utf8,<svg fill="%23bfc1c6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.09 6.26L20 9.27l-5 3.64L16.18 20 12 16.9 7.82 20 9 12.91l-5-3.64 5.91-.99z"/></svg>') center/contain no-repeat;
-    vertical-align: middle;
-    margin: 0 0.2em;
-    filter: drop-shadow(0 0 4px #ffe06688);
-    animation: spin-shuriken 1.2s linear infinite;
-}
-@keyframes spin-shuriken {
-    100% { transform: rotate(360deg); }
+form h2 {
+    text-align: center;
+    color: var(--admin-text-primary);
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
 }
 
-.ninja-glow {
-    box-shadow: 0 0 16px 2px #ffe06699, 0 0 32px 8px #7e7e7e55;
-    border: 1.5px solid #ffe06655;
+.field {
+    margin-bottom: 1.5rem;
 }
 
-.ninja-sabre {
-    display: inline-block;
-    width: 2em;
-    height: 0.3em;
-    background: linear-gradient(90deg, #ffe066 0%, #bfc1c6 100%);
-    border-radius: 0.2em;
-    box-shadow: 0 0 12px #ffe06688;
-    margin: 0 0.3em;
-    vertical-align: middle;
+form label {
+    color: var(--admin-text-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Fond ninja pour la page admin */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--admin-border);
+    border-radius: var(--admin-radius-md);
+    background: var(--admin-surface);
+    color: var(--admin-text-primary);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all var(--admin-transition);
+    box-shadow: var(--admin-shadow-sm);
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--admin-secondary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+form input:hover,
+form select:hover,
+form textarea:hover {
+    border-color: var(--admin-secondary-light);
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+/* Boutons modernes */
+button[type="submit"],
+.btn,
+.admin-btn {
+    background: linear-gradient(135deg, var(--admin-secondary), var(--admin-secondary-light));
+    color: var(--admin-text-inverse);
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--admin-radius-md);
+    padding: 1rem 2rem;
+    cursor: pointer;
+    box-shadow: var(--admin-shadow-md);
+    transition: all var(--admin-transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]:hover,
+.btn:hover,
+.admin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--admin-shadow-lg);
+    filter: brightness(1.05);
+}
+
+button[type="submit"]:active,
+.btn:active,
+.admin-btn:active {
+    transform: translateY(0);
+    box-shadow: var(--admin-shadow-md);
+}
+
+/* Bouton retour */
+.btn-retour {
+    background: linear-gradient(135deg, var(--admin-text-secondary), var(--admin-text-muted));
+    color: var(--admin-text-inverse);
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.btn-retour:hover {
+    background: linear-gradient(135deg, var(--admin-text-primary), var(--admin-text-secondary));
+}
+
+/* Messages d'état */
+.message {
+    padding: 1rem 1.5rem;
+    border-radius: var(--admin-radius-md);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid;
+}
+
+.message.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--admin-success);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--admin-error);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.message::before {
+    font-size: 1.25rem;
+}
+
+.message.success::before {
+    content: '✓';
+    color: var(--admin-success);
+}
+
+.message.error::before {
+    content: '⚠';
+    color: var(--admin-error);
+}
+
+/* Page de connexion */
 .admin-ninja-bg {
     min-height: 100vh;
-    background: url('ninja.jpg') center/cover no-repeat fixed;
-    background-color: #181c1f;
-    font-family: 'Poppins', 'Inter', Arial, sans-serif;
-    color: #f3f3f3;
+    background: linear-gradient(135deg, var(--admin-primary) 0%, var(--admin-primary-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
 .admin-content {
-    background: rgba(24, 28, 31, 0.88);
-    border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    background: var(--admin-surface);
+    border-radius: var(--admin-radius-xl);
+    box-shadow: var(--admin-shadow-xl);
     max-width: 480px;
-    margin: 5rem auto 0 auto;
-    padding: 2.5rem 2rem 2rem 2rem;
+    width: 100%;
+    padding: 3rem 2.5rem;
     position: relative;
-    z-index: 2;
+    border: 1px solid var(--admin-border);
 }
 
-@media (max-width: 600px) {
+.admin-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--admin-secondary), var(--admin-accent));
+    border-radius: var(--admin-radius-xl) var(--admin-radius-xl) 0 0;
+}
+
+.admin-content form {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    margin: 0;
+}
+
+.admin-content form::before {
+    display: none;
+}
+
+.admin-content h2 {
+    color: var(--admin-text-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+}
+
+/* Liens modernes */
+a {
+    color: var(--admin-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--admin-transition);
+    position: relative;
+}
+
+a:hover {
+    color: var(--admin-secondary-light);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    background: linear-gradient(90deg, var(--admin-secondary), var(--admin-accent));
+    transition: width var(--admin-transition);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #menu {
+        padding: 1rem;
+        border-radius: 0;
+    }
+    
+    #menu ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    #menu ul li a {
+        justify-content: center;
+        padding: 1rem;
+    }
+    
+    form {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
     .admin-content {
-        margin: 2rem 0 0 0;
-        padding: 1.2rem 0.5rem;
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    table {
+        font-size: 0.875rem;
+    }
+    
+    table th,
+    table td {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.875rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    form {
+        padding: 1.5rem 1rem;
+    }
+    
+    .admin-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    table th,
+    table td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animations subtiles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-content,
+form,
+table {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* États de focus améliorés */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus {
+    outline: 2px solid var(--admin-secondary);
+    outline-offset: 2px;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--admin-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--admin-secondary), var(--admin-accent));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--admin-secondary-light), var(--admin-accent-light));
+}
+
+/* Améliorations pour les sélections multiples */
+select[multiple] {
+    min-height: 120px;
+    padding: 0.5rem;
+}
+
+select[multiple] option {
+    padding: 0.5rem;
+    border-radius: var(--admin-radius-sm);
+    margin-bottom: 0.25rem;
+}
+
+select[multiple] option:checked {
+    background: linear-gradient(135deg, var(--admin-secondary), var(--admin-secondary-light));
+    color: var(--admin-text-inverse);
+}
+
+/* Indicateurs visuels pour les champs requis */
+input[required],
+select[required],
+textarea[required] {
+    border-left: 4px solid var(--admin-accent);
+}
+
+/* Amélioration des contrastes pour l'accessibilité */
+@media (prefers-contrast: high) {
+    :root {
+        --admin-border: #000000;
+        --admin-text-secondary: #000000;
+        --admin-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Mode sombre (si souhaité) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --admin-bg: #0f172a;
+        --admin-surface: #1e293b;
+        --admin-text-primary: #f8fafc;
+        --admin-text-secondary: #cbd5e1;
+        --admin-border: #334155;
     }
 }
