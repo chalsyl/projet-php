@@ -57,11 +57,11 @@ $formations = getFormations($pdo);
                             <div class="card-actions">
                                 <button onclick="window.location.href='programme.php?id=<?= $formation['id_formation'] ?>'" class="card-btn">
                                     <i class="fas fa-book"></i>
-                                    Consulter le programme
+                                    <span>Consulter le programme</span>
                                 </button>
                                 <button onclick="window.location.href='inscription.php?formation=<?= $formation['id_formation'] ?>'" class="card-btn">
                                     <i class="fas fa-user-plus"></i>
-                                    S'inscrire
+                                    <span>S'inscrire</span>
                                 </button>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ $formations = getFormations($pdo);
                 <h3>Suivez-nous</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>

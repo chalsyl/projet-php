@@ -251,18 +251,41 @@ h3 {
     color: var(--admin-text-accent);
 }
 
+/* Conteneur de tableau avec scroll horizontal */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--admin-radius-lg);
+    box-shadow: var(--admin-shadow-metallic);
+    border: 1px solid var(--admin-border);
+    background: var(--admin-surface);
+    margin-bottom: 3rem;
+}
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: var(--admin-bg);
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--admin-gradient-primary);
+    border-radius: 4px;
+}
+
 /* Tableaux premium métalliques */
 table {
     width: 100%;
+    min-width: 800px;
     background: var(--admin-surface);
     color: var(--admin-text-primary);
     border-radius: var(--admin-radius-lg);
-    box-shadow: var(--admin-shadow-metallic);
     border-collapse: separate;
     border-spacing: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
     overflow: hidden;
-    border: 1px solid var(--admin-border);
     backdrop-filter: blur(20px);
     position: relative;
 }
@@ -282,14 +305,15 @@ table th {
     background: var(--admin-gradient-primary);
     color: var(--admin-text-inverse);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 1.5rem 2rem;
+    padding: 1.35rem 1.8rem;
     text-align: left;
     border-bottom: 1px solid var(--admin-border);
     font-family: 'Orbitron', sans-serif;
     position: relative;
+    white-space: nowrap;
 }
 
 table th::after {
@@ -313,17 +337,19 @@ table th:last-child {
 }
 
 table td {
-    padding: 1.5rem 2rem;
+    padding: 1.35rem 1.8rem;
     border-bottom: 1px solid var(--admin-border-light);
     vertical-align: middle;
     transition: all var(--admin-transition);
     font-family: 'Exo 2', sans-serif;
     position: relative;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 table tr:hover {
     background: var(--admin-gradient-surface);
-    transform: scale(1.01);
+    transform: scale(1.005);
     box-shadow: var(--admin-shadow-sm);
 }
 
@@ -347,12 +373,15 @@ table td a {
     padding: 0.5rem 1rem;
     border-radius: var(--admin-radius-sm);
     transition: all var(--admin-transition);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-family: 'Orbitron', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 0.5rem;
 }
 
 table td a::before {
@@ -387,6 +416,20 @@ table td a[style*="color:#d32f2f"]:hover {
     background: rgba(239, 68, 68, 0.1) !important;
     color: var(--admin-error) !important;
     box-shadow: 0 0 20px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Responsive pour tableaux */
+@media (max-width: 768px) {
+    table th,
+    table td {
+        padding: 1rem 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    table td a {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 /* Formulaires premium métalliques */
@@ -653,7 +696,7 @@ button[type="submit"]:active,
     justify-content: center;
     padding: 2rem;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .admin-ninja-bg::before {
@@ -792,15 +835,6 @@ a:hover::after {
         margin: 1.5rem;
     }
     
-    table {
-        font-size: 0.9rem;
-    }
-    
-    table th,
-    table td {
-        padding: 1rem 1.25rem;
-    }
-    
     h1 {
         font-size: 2rem;
     }
@@ -825,12 +859,6 @@ a:hover::after {
     
     .admin-content {
         padding: 2.5rem 1.5rem;
-    }
-    
-    table th,
-    table td {
-        padding: 0.75rem 1rem;
-        font-size: 0.85rem;
     }
     
     button[type="submit"],
@@ -949,19 +977,6 @@ textarea[required] {
     position: relative;
 }
 
-input[required]::after,
-select[required]::after,
-textarea[required]::after {
-    content: '*';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--admin-accent);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
 /* Amélioration des contrastes pour l'accessibilité */
 @media (prefers-contrast: high) {
     :root {
@@ -980,4 +995,34 @@ textarea[required]::after {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Wrapper pour tous les tableaux */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--admin-radius-lg);
+    box-shadow: var(--admin-shadow-metallic);
+    border: 1px solid var(--admin-border);
+    background: var(--admin-surface);
+    margin-bottom: 3rem;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: var(--admin-bg);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--admin-gradient-primary);
+    border-radius: 4px;
+}
+
+.table-wrapper table {
+    margin-bottom: 0;
+    border: none;
+    box-shadow: none;
 }

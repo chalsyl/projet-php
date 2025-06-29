@@ -415,7 +415,7 @@ header nav a:hover::after {
 .primary-cta:hover,
 .btn-inscription:hover,
 .card-btn:first-child:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-3px) scale(1.01);
     box-shadow: var(--shadow-violet-xl), var(--cosmic-glow);
     filter: brightness(1.1);
 }
@@ -438,7 +438,7 @@ header nav a:hover::after {
 .card-btn:last-child:hover {
     background: var(--gradient-surface);
     color: var(--text-primary);
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-3px) scale(1.01);
     box-shadow: var(--shadow-violet-md);
     border-color: var(--accent-cosmic);
 }
@@ -520,7 +520,7 @@ header nav a:hover::after {
 }
 
 .stat-card:hover {
-    transform: translateY(-12px) scale(1.03);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: var(--shadow-violet-xl), var(--cosmic-glow);
 }
 
@@ -541,7 +541,7 @@ header nav a:hover::after {
 }
 
 .stat-card:hover i {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.15) rotate(5deg);
     filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8));
 }
 
@@ -658,7 +658,7 @@ header nav a:hover::after {
 }
 
 .domain-card:hover {
-    transform: translateY(-15px) scale(1.02);
+    transform: translateY(-12px) scale(1.02);
     box-shadow: var(--shadow-violet-xl), var(--cosmic-glow);
 }
 
@@ -676,7 +676,7 @@ header nav a:hover::after {
 }
 
 .domain-card:hover i {
-    transform: scale(1.2) rotate(10deg);
+    transform: scale(1.15) rotate(8deg);
     filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8));
 }
 
@@ -810,7 +810,7 @@ header nav a:hover::after {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-6px) scale(1.01);
     box-shadow: var(--shadow-violet-lg), var(--cosmic-glow);
 }
 
@@ -825,13 +825,19 @@ header nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--text-primary);
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-violet-md);
     border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-premium);
+}
+
+.testimonial-card:hover .testimonial-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-violet-lg), var(--cosmic-glow);
 }
 
 .testimonial-icon::before {
@@ -843,6 +849,11 @@ header nav a:hover::after {
     bottom: 0;
     background: var(--metallic-shine);
     animation: metallicSweep 3s ease-in-out infinite;
+}
+
+.testimonial-icon i {
+    position: relative;
+    z-index: 2;
 }
 
 .testimonial-content {
@@ -990,6 +1001,7 @@ header nav a:hover::after {
     border: var(--border-cosmic);
     position: relative;
     overflow: hidden;
+    text-decoration: none;
 }
 
 .social-links a::before {
@@ -1005,7 +1017,7 @@ header nav a:hover::after {
 }
 
 .social-links a:hover {
-    transform: translateY(-4px) scale(1.1);
+    transform: translateY(-3px) scale(1.05);
     box-shadow: var(--shadow-violet-lg), var(--cosmic-glow);
     color: var(--text-primary);
 }
@@ -1076,7 +1088,7 @@ header nav a:hover::after {
 }
 
 .card:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-10px) scale(1.01);
     box-shadow: var(--shadow-violet-xl), var(--cosmic-glow);
 }
 
@@ -1141,11 +1153,22 @@ header nav a:hover::after {
 
 .card-actions .card-btn {
     flex: 1;
-    padding: 1.25rem 2rem;
-    font-size: 0.95rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.9rem;
     border-radius: var(--radius-premium);
     font-weight: 600;
     text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.card-actions .card-btn span {
+    font-size: 0.85rem;
+    line-height: 1.2;
 }
 
 /* Page Inscription Premium */
@@ -1285,7 +1308,7 @@ form button[type="submit"]::before {
 }
 
 form button[type="submit"]:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-3px) scale(1.01);
     box-shadow: var(--shadow-violet-xl), var(--cosmic-glow);
     filter: brightness(1.1);
 }
@@ -1494,6 +1517,16 @@ form button[type="submit"]:hover::before {
     .testimonials-section h2 {
         font-size: 2.2rem;
     }
+    
+    .card-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .card-actions .card-btn {
+        flex-direction: row;
+        min-height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1503,10 +1536,6 @@ form button[type="submit"]:hover::before {
     
     .hero-subtitle {
         font-size: 1.1rem;
-    }
-    
-    .card-actions {
-        flex-direction: column;
     }
     
     .programme-meta {
@@ -1681,7 +1710,7 @@ form button[type="submit"]:hover::before {
 }
 
 .formateur-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-6px) scale(1.01);
     box-shadow: var(--shadow-violet-lg), var(--cosmic-glow);
 }
 
@@ -1700,7 +1729,7 @@ form button[type="submit"]:hover::before {
 }
 
 .formateur-card:hover .formateur-avatar {
-    transform: scale(1.1);
+    transform: scale(1.08);
     box-shadow: var(--shadow-violet-lg), var(--cosmic-glow);
 }
 
@@ -1749,7 +1778,7 @@ form button[type="submit"]:hover::before {
 }
 
 .module:hover {
-    transform: translateX(8px);
+    transform: translateX(6px);
     box-shadow: var(--shadow-violet-md);
     background: rgba(107, 70, 193, 0.08);
 }
@@ -1827,7 +1856,7 @@ form button[type="submit"]:hover::before {
 .objectifs-list li:hover,
 .prerequis-list li:hover {
     color: var(--text-primary);
-    transform: translateX(8px);
+    transform: translateX(6px);
 }
 
 .objectifs-list li::before {
@@ -1868,4 +1897,46 @@ form button[type="submit"]:hover::before {
     min-width: 220px;
     padding: 1.5rem 2.5rem;
     font-size: 1.1rem;
+}
+
+/* Tableaux Admin avec scroll horizontal */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--admin-radius-lg);
+    box-shadow: var(--admin-shadow-metallic);
+    border: 1px solid var(--admin-border);
+    background: var(--admin-surface);
+}
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: var(--admin-bg);
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: var(--admin-gradient-primary);
+    border-radius: 4px;
+}
+
+table {
+    min-width: 800px;
+    margin-bottom: 0;
+}
+
+table th,
+table td {
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    table th,
+    table td {
+        font-size: 0.8rem;
+        padding: 1rem 1.5rem;
+    }
 }
