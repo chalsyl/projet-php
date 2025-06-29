@@ -28,6 +28,7 @@ $result = $conn->query($sql);
 <body>
 <?php include "menu.php"; ?>
 <h1>Liste des participants</h1>
+<div class="table-wrapper">
 <table>
     <tr>
         <th>Nom</th>
@@ -49,5 +50,6 @@ $result = $conn->query($sql);
     </tr>
     <?php endwhile; ?>
 </table>
+</div>
 </body>
 </html>

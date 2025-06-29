@@ -28,6 +28,7 @@ $result = $conn->query("SELECT * FROM formation ORDER BY date_debut DESC");
 <?php include "menu.php"; ?>
 <h1>Gestion des formations</h1>
 <a href="ajout_formation.php" class="btn" style="margin-bottom: 1.5em; display:inline-block;">Ajouter une formation</a>
+<div class="table-wrapper">
 <table>
     <tr>
         <th>Intitulé</th>
@@ -53,5 +54,6 @@ $result = $conn->query("SELECT * FROM formation ORDER BY date_debut DESC");
     </tr>
     <?php endwhile; ?>
 </table>
+</div>
 </body>
 </html>

@@ -28,6 +28,7 @@ $result = $conn->query("SELECT * FROM animateur ORDER BY nom, prenom");
 <?php include "menu.php"; ?>
 <h1>Gestion des animateurs</h1>
 <a href="ajout_animateur.php" class="btn" style="margin-bottom: 1.5em; display:inline-block;">Ajouter un animateur</a>
+<div class="table-wrapper">
 <table>
     <tr>
         <th>Nom</th>
@@ -45,5 +46,6 @@ $result = $conn->query("SELECT * FROM animateur ORDER BY nom, prenom");
     </tr>
     <?php endwhile; ?>
 </table>
+</div>
 </body>
 </html>
