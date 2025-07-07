@@ -23,6 +23,7 @@ $formations = getFormations($pdo);
                 <h3>
                 <a href="index.php">Accueil</a>
                 <a href="formations.php">Formations</a>
+                <a href="recherche.php">Recherche</a>
                 <a href="inscription.php">Inscription</a>
                 <a href="../admin/index.php">Admin</a>
             </h3>
@@ -30,8 +31,20 @@ $formations = getFormations($pdo);
         </div>
     </header>
     <main>
+        <section class="formations-header">
+            <div class="formations-header-content">
+                <h2>Nos Formations</h2>
+                <p>Découvrez notre catalogue complet de formations professionnelles</p>
+                <div class="header-actions">
+                    <a href="recherche.php" class="cta primary-cta">
+                        <i class="fas fa-search"></i>
+                        Recherche avancée
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section id="formations">
-            <h2 style="text-align:center;margin-bottom:2rem;">Nos Formations</h2>
             <div class="catalogue">
                 <?php if (!empty($formations)): ?>
                     <?php foreach ($formations as $formation): ?>

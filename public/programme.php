@@ -35,6 +35,7 @@ $animateurs = explode('||', $formation['animateurs']);
              <h3>
                 <a href="index.php">Accueil</a>
                 <a href="formations.php">Formations</a>
+                <a href="recherche.php">Recherche</a>
                 <a href="inscription.php">Inscription</a>
                 <a href="../admin/index.php">Admin</a>
             </h3>
