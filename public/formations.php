@@ -39,7 +39,7 @@ $lieux = getLieuxDistincts($pdo);
             <nav class="header-nav-links">
                 <h3>
                 <a href="index.php">Accueil</a>
-                <a href="formations.php">Formations</a>
+                <a href="formations.php" class="active">Formations</a>
                 <a href="inscription.php">Inscription</a>
                 <a href="../admin/index.php">Admin</a>
             </h3>

@@ -25,9 +25,8 @@ $stats = [
             </nav>
             <nav class="header-nav-links">
              <h3>
-                <a href="index.php">Accueil</a>
+                <a href="index.php" class="active">Accueil</a>
                 <a href="formations.php">Formations</a>
-                <a href="recherche.php">Recherche</a>
                 <a href="inscription.php">Inscription</a>
                 <a href="../admin/index.php">Admin</a>
             </h3>
@@ -43,7 +42,7 @@ $stats = [
                 <p class="hero-subtitle">Des formations professionnelles adaptées à vos besoins</p>
                 <div class="hero-cta">
                     <a href="formations.php" class="cta primary-cta">Découvrir nos formations</a>
-                    <a href="recherche.php" class="cta secondary-cta">Rechercher une formation</a>
+                    <a href="formations.php" class="cta secondary-cta">Rechercher une formation</a>
                 </div>
             </div>
         </section>
