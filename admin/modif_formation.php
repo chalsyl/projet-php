@@ -20,7 +20,7 @@ $res = $stmt->get_result();
 $formation = $res->fetch_assoc();
 if (!$formation) die('Formation non trouvée.');
 // Récupérer les animateurs
-$animateurs = $conn->query("SELECT * FROM animateur");
+$animateurs = $conn->query("SELECT * FROM animateur ORDER BY nom, prenom");
 // Animateurs déjà liés
 $anims_linked = [];
 $res2 = $conn->query("SELECT id_animateur FROM formation_animateur WHERE id_formation = $id");
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Modifier formation</title>
-<link rel="stylesheet" href="../stylesheets/style.css"></head>
+<link rel="stylesheet" href="admin.css"></head>
 <body>
 <?php include "menu.php"; ?>
 <h1>Modifier une formation</h1>
@@ -91,12 +91,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="number" name="montant" min="0" step="0.01" value="<?= htmlspecialchars($formation['montant']) ?>" required>
     </div>
     <div class="field">
-        <label>Animateur(s)</label>
-        <select name="animateurs[]" multiple>
+        <label>Animateur(s) *</label>
+        <select name="animateurs[]" multiple required>
             <?php while($a = $animateurs->fetch_assoc()): ?>
-                <option value="<?= $a['id_animateur'] ?>" <?= in_array($a['id_animateur'], $anims_linked) ? 'selected' : '' ?>><?= htmlspecialchars($a['nom']) ?></option>
+                <option value="<?= $a['id_animateur'] ?>" <?= in_array($a['id_animateur'], $anims_linked) ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($a['nom']) ?> <?= htmlspecialchars($a['prenom']) ?>
+                </option>
             <?php endwhile; ?>
         </select>
+        <small style="color: var(--admin-text-muted); font-size: 0.85rem; margin-top: 0.5rem; display: block;">
+            Maintenez Ctrl (ou Cmd sur Mac) pour sélectionner plusieurs animateurs
+        </small>
     </div>
     <div class="field">
         <label>Fiche programme</label>

@@ -22,8 +22,8 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Liste des participants</title>
-    <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="stylesheet" href="../stylesheets/styletable.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 <?php include "menu.php"; ?>

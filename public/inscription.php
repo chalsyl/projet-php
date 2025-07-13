@@ -2,6 +2,11 @@
 require_once __DIR__ . '/../src/functions.php';
 $formations = getFormations($pdo);
 $message = '';
+$message_type = '';
+
+// Pré-sélection de formation si ID fourni
+$formation_preselected = isset($_GET['formation']) ? (int)$_GET['formation'] : 0;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
     $nom = trim($_POST['nom'] ?? '');
     $prenom = trim($_POST['prenom'] ?? '');
@@ -9,11 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
     $telephone = trim($_POST['telephone'] ?? '');
     $genre = trim($_POST['genre'] ?? '');
     $id_formation = (int)($_POST['id_formation'] ?? 0);
+    
     if ($nom && $prenom && $email && $id_formation) {
-        inscrireParticipant($pdo, $nom, $prenom, $email, $telephone, $id_formation, $genre);
-        $message = 'Inscription réussie ! Vous recevrez un email de confirmation.';
+        try {
+            inscrireParticipant($pdo, $nom, $prenom, $email, $telephone, $id_formation, $genre);
+            $message = 'Inscription réussie ! Vous recevrez un email de confirmation.';
+            $message_type = 'success';
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+            $message_type = 'error';
+        }
     } else {
         $message = 'Merci de remplir tous les champs obligatoires.';
+        $message_type = 'error';
     }
 }
 ?>
@@ -24,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header class="transparent-header">
@@ -37,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
             <h3>
                 <a href="index.php">Accueil</a>
                 <a href="formations.php">Formations</a>
-                <a href="inscription.php">Inscription</a>
+                <a href="inscription.php" class="active">Inscription</a>
                 <a href="../admin/index.php">Admin</a>
             </h3>
             </nav>
@@ -47,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
         <section id="inscription" class="inscription-container">
             <h2 class="inscription-title">Inscription en ligne</h2>
             <?php if ($message): ?>
-                <div class="message<?= strpos($message, 'réussie') !== false ? ' success' : ' error' ?>"> <?= htmlspecialchars($message) ?> </div>
+                <div class="message <?= $message_type ?>"> <?= htmlspecialchars($message) ?> </div>
             <?php endif; ?>
             <form method="post" autocomplete="off">
                 <input type="hidden" name="inscription" value="1">
@@ -66,7 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
                     <select name="id_formation" required>
                         <option value="">Choisir une formation</option>
                         <?php foreach ($formations as $formation): ?>
-                            <option value="<?= $formation['id_formation'] ?>">
+                            <option value="<?= $formation['id_formation'] ?>" 
+                                    <?= $formation_preselected == $formation['id_formation'] ? 'selected' : '' ?>>
                                 <?= htmlspecialchars($formation['intitule']) ?> (<?= date('d/m/Y', strtotime($formation['date_debut'])) ?>)
                             </option>
                         <?php endforeach; ?>
@@ -91,13 +106,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
                 <h3>Suivez-nous</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 - Plateforme de Formations Continues</p>
+            <p>&copy; 2025 - Sylla Industries.</p>
         </div>
     </footer>
     <script src="app.js"></script>

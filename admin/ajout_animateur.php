@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Ajout animateur</title>
-<link rel="stylesheet" href="../stylesheets/style.css"></head>
+<link rel="stylesheet" href="admin.css"></head>
 <body>
 <?php include "menu.php"; ?>
 <h1>Ajouter un animateur</h1>

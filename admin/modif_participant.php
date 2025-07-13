@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Modifier participant</title>
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 <?php include "menu.php"; ?>

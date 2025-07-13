@@ -21,7 +21,7 @@ $animateurs = explode('||', $formation['animateurs']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programme - <?= htmlspecialchars($formation['intitule']) ?></title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header class="transparent-header">
@@ -181,13 +181,13 @@ $animateurs = explode('||', $formation['animateurs']);
                 <h3>Suivez-nous</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 - Plateforme de Formations Continues</p>
+            <p>&copy; 2025 - Sylla Industries.</p>
         </div>
     </footer>
 

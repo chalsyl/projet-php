@@ -21,7 +21,7 @@ if(isset($_POST['Bconnexion'])){
     $row = $res->fetch_assoc();
     if($row['nb'] == 1){
         $_SESSION['login'] = $login;
-        header("location:formations.php");
+        header("location:statistiques.php");
         exit();
     } else {
         $message = "<span style='color:red'>Login ou mot de passe incorrect</span>";
@@ -32,19 +32,9 @@ if(isset($_POST['Bconnexion'])){
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion Admin</title>
     <link rel="stylesheet" href="admin.css">
-    <style>
-        #canvas-counailles {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .admin-content { position: relative; z-index: 1; }
-    </style>
 </head>
 <body class="admin-ninja-bg">
 <div class="admin-content">

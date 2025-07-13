@@ -22,7 +22,7 @@ $result = $conn->query("SELECT * FROM formation ORDER BY date_debut DESC");
 <head>
     <meta charset="UTF-8">
     <title>Gestion des formations</title>
-<link rel="stylesheet" href="../stylesheets/style.css">
+<link rel="stylesheet" href="admin.css">
 </head>
 <body>
 <?php include "menu.php"; ?>

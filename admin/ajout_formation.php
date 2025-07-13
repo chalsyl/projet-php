@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     die('Erreur de connexion à la base de données : ' . $conn->connect_error);
 }
 // Récupérer la liste des animateurs
-$animateurs = $conn->query("SELECT * FROM animateur");
+$animateurs = $conn->query("SELECT * FROM animateur ORDER BY nom, prenom");
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $domaine = trim($_POST['domaine']);
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Ajout formation</title>
-<link rel="stylesheet" href="../stylesheets/style.css"></head>
+<link rel="stylesheet" href="admin.css"></head>
 <body>
 <?php include "menu.php"; ?>
 <h1>Ajouter une formation</h1>
@@ -71,12 +71,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="number" name="montant" min="0" step="0.01" required>
     </div>
     <div class="field">
-        <label>Animateur(s)</label>
-        <select name="animateurs[]" multiple>
+        <label>Animateur(s) *</label>
+        <select name="animateurs[]" multiple required>
             <?php while($a = $animateurs->fetch_assoc()): ?>
                 <option value="<?= $a['id_animateur'] ?>"><?= htmlspecialchars($a['nom']) ?> <?= htmlspecialchars($a['prenom']) ?></option>
             <?php endwhile; ?>
         </select>
+        <small style="color: var(--admin-text-muted); font-size: 0.85rem; margin-top: 0.5rem; display: block;">
+            Maintenez Ctrl (ou Cmd sur Mac) pour sélectionner plusieurs animateurs
+        </small>
     </div>
     <div class="field">
         <label>Fiche programme</label>

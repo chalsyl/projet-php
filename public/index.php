@@ -13,7 +13,7 @@ $stats = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Catalogue de Formations</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header class="transparent-header">
@@ -25,7 +25,7 @@ $stats = [
             </nav>
             <nav class="header-nav-links">
              <h3>
-                <a href="index.php">Accueil</a>
+                <a href="index.php"  class="active">Accueil</a>
                 <a href="formations.php">Formations</a>
                 <a href="inscription.php">Inscription</a>
                 <a href="../admin/index.php">Admin</a>
@@ -42,7 +42,7 @@ $stats = [
                 <p class="hero-subtitle">Des formations professionnelles adaptées à vos besoins</p>
                 <div class="hero-cta">
                     <a href="formations.php" class="cta primary-cta">Découvrir nos formations</a>
-                    <a href="inscription.php" class="cta secondary-cta">S'inscrire maintenant</a>
+                    <a href="inscription.php" class="cta secondary-cta">S'inscrire à une formation</a>
                 </div>
             </div>
         </section>
@@ -101,48 +101,66 @@ $stats = [
             <h2>Ce qu'ils disent de nous</h2>
             <div class="testimonials-carousel">
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #a8327e"><span>🎤</span></div>
-                    <div class="testimonial-content">"Excellent séminaire qui m’a permis de renforcer mes compétences en communication."</div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #6B46C1, #8B5CF6)">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="testimonial-content">"Excellent séminaire qui m'a permis de renforcer mes compétences en communication."</div>
                     <div class="testimonial-author">MARTIN DUPONT</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #ffb300"><span>💬</span></div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #A855F7, #C084FC)">
+                        <i class="fas fa-comments"></i>
+                    </div>
                     <div class="testimonial-content">"Les formateurs étaient très compétents et engageants."</div>
                     <div class="testimonial-author">SOPHIE MARTIN</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #1976d2"><span>⚙️</span></div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #EC4899, #F472B6)">
+                        <i class="fas fa-cogs"></i>
+                    </div>
                     <div class="testimonial-content">"Formation très enrichissante et directement applicable."</div>
                     <div class="testimonial-author">THOMAS LEROY</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #43a047"><span>🌱</span></div>
-                    <div class="testimonial-content">"J’ai apprécié l’ambiance conviviale et l’accompagnement personnalisé."</div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #14B8A6, #34D399)">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="testimonial-content">"J'ai apprécié l'ambiance conviviale et l'accompagnement personnalisé."</div>
                     <div class="testimonial-author">AMELIE DURAND</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #ffd600"><span>🌸</span></div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #F59E0B, #FBBF24)">
+                        <i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">"Des outils concrets et des conseils pratiques pour progresser."</div>
                     <div class="testimonial-author">JULIE BENOIT</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #ff7043"><span>🧑‍💻</span></div>
-                    <div class="testimonial-content">"L’équipe pédagogique est à l’écoute et très réactive."</div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #3B82F6, #60A5FA)">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="testimonial-content">"L'équipe pédagogique est à l'écoute et très réactive."</div>
                     <div class="testimonial-author">LUCAS MARTEL</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #ff69b4"><span>⭐</span></div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #8B5CF6, #A855F7)">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <div class="testimonial-content">"Une expérience formatrice et motivante, je recommande !"</div>
                     <div class="testimonial-author">MARINE LAFON</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #00bcd4"><span>📚</span></div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #06B6D4, #0891B2)">
+                        <i class="fas fa-book"></i>
+                    </div>
                     <div class="testimonial-content">"Des contenus riches et adaptés à mon projet professionnel."</div>
                     <div class="testimonial-author">PIERRE GARNIER</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-icon" style="background: #8e24aa"><span>🎯</span></div>
-                    <div class="testimonial-content">"J’ai pu atteindre mes objectifs grâce à cette formation."</div>
+                    <div class="testimonial-icon" style="background: linear-gradient(135deg, #C084FC, #EC4899)">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="testimonial-content">"J'ai pu atteindre mes objectifs grâce à cette formation."</div>
                     <div class="testimonial-author">SARAH LEMOINE</div>
                 </div>
             </div>
@@ -175,13 +193,13 @@ $stats = [
                 <h3>Suivez-nous</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 - Plateforme de Formations Continues</p>
+            <p>&copy; 2025 - Sylla Industries.</p>
         </div>
     </footer>
 
